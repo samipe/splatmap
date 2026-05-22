@@ -37,8 +37,8 @@ function Scene() {
     <>
       <Camera />
       {mapModel === "town" && <Town />}
-      {mapModel === "nuotio" && <GaussianSplat url="/nuotio.sog" rotation={[Math.PI, Math.PI / 2, 0]} />}
-      {mapModel === "ala" && <GaussianSplat url="/ala.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
+      {mapModel === "nuotio" && <GaussianSplat url="/splatmap/nuotio.sog" rotation={[Math.PI, Math.PI / 2, 0]} />}
+      {mapModel === "ala" && <GaussianSplat url="/splatmap/ala.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
       <ambientLight intensity={0.45} />
       <directionalLight
         position={[8, 14, 7]}
