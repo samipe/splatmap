@@ -40,7 +40,7 @@ function Scene() {
       {mapModel === "town" && <Town />}
       {mapModel === "nuotio" && <GaussianSplat url="/splatmap/nuotio.sog" rotation={[Math.PI, Math.PI / 2, 0]} />}
       {mapModel === "ala" && <GaussianSplat url="/splatmap/ala.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
-      {mapModel === "core_camp" && <GaussianSplat url="/splatmap/ala-gsplat-1m-e.sog" rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.3, 0.3, 0.3]} />}
+      {mapModel === "core_camp" && <GaussianSplat url="/splatmap/ala-gsplat-1m-e.sog" rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.3, 0.3, 0.3]} position={[0, -1, 0]} />}
       <ambientLight intensity={0.45} />
       <directionalLight
         position={[8, 14, 7]}
