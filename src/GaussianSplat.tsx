@@ -35,6 +35,7 @@ export default function GaussianSplat({ url, rotation = [0, 0, 0], scale = [1, 1
     const euler = new Euler(...stableRotation);
     splat.setRotationFromEuler(euler);
     splat.scale.set(...stableScale);
+    splat.position.set(...position);
     scene.add(splat);
     splatRef.current = splat;
 
