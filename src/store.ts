@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Object3D } from "three";
 
-type MapModel = "town" | "nuotio" | "terde" | "ala";
+type MapModel = "town" | "nuotio" | "terde" | "ala" | "core_camp";
 
 interface MapState {
   cameraMode: "move" | "inspect";

@@ -12,7 +12,7 @@ function MapModelSelector() {
     <div style={{ position: "absolute", top: 12, left: 12, zIndex: 1 }}>
       <select
         value={mapModel}
-        onChange={(e) => setMapModel(e.target.value as "town" | "nuotio" | "terde" | "ala")}
+        onChange={(e) => setMapModel(e.target.value as "town" | "nuotio" | "terde" | "ala" | "core_camp")}
         style={{
           padding: "6px 10px",
           borderRadius: 4,
@@ -25,6 +25,7 @@ function MapModelSelector() {
         <option value="town">Town</option>
         <option value="nuotio">Nuotio</option>
         <option value="ala">Alakerta</option>
+        <option value="core_camp">Core Camp</option>
       </select>
     </div>
   );
@@ -39,6 +40,7 @@ function Scene() {
       {mapModel === "town" && <Town />}
       {mapModel === "nuotio" && <GaussianSplat url="/splatmap/nuotio.sog" rotation={[Math.PI, Math.PI / 2, 0]} />}
       {mapModel === "ala" && <GaussianSplat url="/splatmap/ala.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
+      {mapModel === "core_camp" && <GaussianSplat url="/splatmap/ala-gsplat-1m-e.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
       <ambientLight intensity={0.45} />
       <directionalLight
         position={[8, 14, 7]}
