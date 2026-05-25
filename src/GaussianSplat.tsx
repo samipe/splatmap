@@ -10,9 +10,10 @@ interface GaussianSplatProps {
   url: string;
   rotation?: [number, number, number];
   scale?: [number, number, number];
+  position?: [number, number, number];
 }
 
-export default function GaussianSplat({ url, rotation = [0, 0, 0], scale = [1, 1, 1] }: GaussianSplatProps) {
+export default function GaussianSplat({ url, rotation = [0, 0, 0], scale = [1, 1, 1], position = [0, 0, 0] }: GaussianSplatProps) {
   const { gl, scene, camera } = useThree();
   const sparkRef = useRef<SparkRenderer | null>(null);
   const splatRef = useRef<SplatMesh | null>(null);
