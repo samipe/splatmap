@@ -4,7 +4,7 @@ import { SparkRenderer, SplatMesh } from "@sparkjsdev/spark";
 import { Euler, Raycaster, Vector2 } from "three";
 import { useMapStore } from "./store";
 
-const HOLD_THRESHOLD_MS = 500;
+const HOLD_THRESHOLD_MS = 300;
 
 interface GaussianSplatProps {
   url: string;
@@ -58,6 +58,7 @@ export default function GaussianSplat({ url, rotation = [0, 0, 0], scale = [1, 1
       raycaster.setFromCamera(mouse, camera);
       const hits = raycaster.intersectObject(splat);
       if (hits.length > 0) {
+        if (hits[0].distance > 50) return; // Ignore clicks that are too far away
         const point = hits[0].point;
         setCameraTargetPosition([point.x, point.y, point.z]);
       }
