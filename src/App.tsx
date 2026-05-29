@@ -12,7 +12,7 @@ function MapModelSelector() {
     <div style={{ position: "absolute", top: 12, left: 12, zIndex: 1 }}>
       <select
         value={mapModel}
-        onChange={(e) => setMapModel(e.target.value as "town" | "nuotio" | "terde" | "ala" | "core_camp")}
+        onChange={(e) => setMapModel(e.target.value as "town" | "nuotio" | "terde" | "ala" | "core_camp" | "koivukyla")}
         style={{
           padding: "6px 10px",
           borderRadius: 4,
@@ -26,6 +26,7 @@ function MapModelSelector() {
         <option value="nuotio">Nuotio</option>
         <option value="ala">Alakerta</option>
         <option value="core_camp">Core Camp</option>
+        <option value="koivukyla">Koivukylä</option>
       </select>
     </div>
   );
@@ -41,6 +42,7 @@ function Scene() {
       {mapModel === "nuotio" && <GaussianSplat url="/splatmap/nuotio.sog" rotation={[Math.PI, Math.PI / 2, 0]} />}
       {mapModel === "ala" && <GaussianSplat url="/splatmap/ala.sog" rotation={[Math.PI, -Math.PI / 2, 0]} />}
       {mapModel === "core_camp" && <GaussianSplat url="/splatmap/ala-gsplat-1m-e.sog" rotation={[Math.PI, -Math.PI / 2, 0]} scale={[0.3, 0.3, 0.3]} position={[0, -1, 0]} />}
+      {mapModel === "koivukyla" && <GaussianSplat url="/splatmap/assa.sog" rotation={[Math.PI, -Math.PI, 0]} scale={[2.5, 2.5, 2.5]} position={[-15, 0, 0]} />}
       <ambientLight intensity={0.45} />
       <directionalLight
         position={[8, 14, 7]}
@@ -57,7 +59,7 @@ export default function App() {
   return (
     <>
       <MapModelSelector />
-      <Canvas shadows dpr={1} style={{ width: "100vw", height: "100vh", display: "block" }} gl={{}}>
+      <Canvas shadows dpr={0.5} style={{ width: "100vw", height: "100vh", display: "block" }} gl={{}}>
         <Scene />
       </Canvas>
     </>
